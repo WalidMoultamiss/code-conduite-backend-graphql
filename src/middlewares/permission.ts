@@ -1,21 +1,20 @@
-import { rule, shield } from 'graphql-shield';
+import { Role } from '@ts/enums';
+import { rule } from 'graphql-shield';
 
 export const isAuthenticated = rule({ cache: 'contextual' })(
-  async (parent, args, ctx, info) => {
+  async (parent, args, ctx) => {
     return ctx.user !== null;
   }
 );
 
-export const isAdmin = rule({ cache: 'contextual' })(
-  async (parent, args, ctx, info) => {
-    return ctx.user.role === 'admin';
+export const isUser = rule({ cache: 'contextual' })(
+  async (parent, args, ctx) => {
+    return ctx.user.role === Role.USER;
   }
 );
 
-// Permissions
-export const permissions = shield({
-  Query: {
-  },
-},{
-  debug: process.env.NODE_ENV !== 'production',
-});
+export const isAdmin = rule({ cache: 'contextual' })(
+  async (parent, args, ctx) => {
+    return ctx.user.role === Role.ADMIN;
+  }
+);
