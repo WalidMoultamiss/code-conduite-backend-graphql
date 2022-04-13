@@ -2,6 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/main.ts",
     "build": "tsc && tsc-alias",
