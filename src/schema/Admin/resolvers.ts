@@ -5,6 +5,7 @@ import { sign } from "jsonwebtoken";
 
 export const resolvers: Resolvers = {
   Query: {
+    //@ts-ignore
     getAllAdmins: async (): Promise<any> => await Admin.find(),
   },
   Mutation: {

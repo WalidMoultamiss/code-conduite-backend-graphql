@@ -3,6 +3,7 @@ import { ICategory, Category, Question } from "@models/index";
 
 export const resolvers: Resolvers = {
   Query: {
+    //@ts-ignore
     getAllCategories: async (): Promise<ICategory[]> => {
       return await Category.find();
     },
@@ -22,6 +23,7 @@ export const resolvers: Resolvers = {
     },
   },
   Mutation: {
+    //@ts-ignore
     createCategory: async (_, { input }): Promise<ICategory> => {
       const category = new Category(input);
       return await category.save();

@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { Status } from "@ts/enums";
 
 export interface IQuestion {
   id: string;

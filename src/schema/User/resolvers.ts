@@ -6,6 +6,7 @@ import { sign } from "jsonwebtoken";
 
 export const resolvers: Resolvers = {
   Query: {
+    //@ts-ignore
     getAllUsers: (): any => User.find(),
   },
   Mutation: {
@@ -49,6 +50,7 @@ export const resolvers: Resolvers = {
       user.token = token;
       return user;
     },
+    //@ts-ignore
     setResults: async (_: any, { input }: { input: any }): Promise<any> => {
       const { userId, results } = input;
       const user = await User.findById(userId);
